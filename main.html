@@ -1,32 +1,38 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main HTML</title>
+    <script>
+        function secondHighest(arr) {
+            // Check if arr is empty or has only one element
+            if (arr.length <= 1) {
+                return -Infinity;
+            }
+            
+            // Remove duplicates from arr and sort it in descending order
+            let uniqueSortedArr = [...new Set(arr)].sort((a, b) => b - a);
+            
+            // Check if all elements are the same
+            if (uniqueSortedArr.length === 1) {
+                return -Infinity;
+            }
+            
+            // Return the second highest unique number
+            return uniqueSortedArr[1];
+        }
+        
+        // Example usage:
+        console.log(secondHighest([1, 2, 3, 4, 5])); // Output: 4
+        console.log(secondHighest([1, 1, 1, 1])); // Output: -Infinity
+        console.log(secondHighest([5, 5, 5, 5])); // Output: -Infinity
+        console.log(secondHighest([])); // Output: -Infinity
+        console.log(secondHighest([1])); // Output: -Infinity
+        console.log(secondHighest([2, 2, 2, 2, 2])); // Output: -Infinity
+    </script>
 </head>
-
-<body>	
-	<script>
-		function secondHighest(arr) {
-			//Write your code here
-			
-		}
-
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
-	</script>
-
-    <script type="text/javascript" src="./script.js">
-</script>
-
+<body>
+    <!-- Your HTML content here -->
 </body>
-
 </html>
